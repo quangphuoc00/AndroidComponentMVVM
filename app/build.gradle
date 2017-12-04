@@ -1,0 +1,62 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 26
+    defaultConfig {
+        applicationId "com.peterdang.mvvm"
+        minSdkVersion 15
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    dataBinding {
+        enabled = true
+    }
+
+    dexOptions {
+        javaMaxHeapSize "2g"
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation supportDependencies.appCompat
+    implementation supportDependencies.design
+    implementation supportDependencies.recyclerView
+    implementation supportDependencies.cardView
+
+    implementation retrofitDependencies.retrofit
+    implementation retrofitDependencies.gson
+    implementation retrofitDependencies.rxAdapterJava
+
+    implementation rxDependencies.rxAndroid
+    implementation rxDependencies.rxJava
+
+    implementation butterknifeDependencies.butterknife
+    annotationProcessor butterknifeDependencies.butterknifeCompiler
+
+//    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    annotationProcessor daggerDependencies.daggerCompiler
+    implementation daggerDependencies.dagger
+
+    annotationProcessor daggerDependencies.daggerAndroidProcessor
+    implementation daggerDependencies.daggerAndroidSupport
+    implementation daggerDependencies.daggerAndroid
+
+    annotationProcessor lifecycleDependencies.lifecycleCompiler
+    implementation lifecycleDependencies.lifecycleExtension
+    implementation lifecycleDependencies.lifecycleRuntime
+
+    testImplementation testingDependencies.junit
+    testImplementation testingDependencies.mockito
+}

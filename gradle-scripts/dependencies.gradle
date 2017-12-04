@@ -1,0 +1,84 @@
+ext {
+
+    //Version
+    supportVersion = '27.0.1'
+
+    retrofitVersion = '2.2.0'
+    rxAndroidVersion = '2.0.1'
+    rxJavaVersion = '2.1.5'
+
+    butterknifeVersion = '8.8.1'
+
+    daggerAndroidVersion = '2.13'
+
+    lifecycleAndroidVersion = '1.0.0'
+
+    junitVersion = '4.12'
+    mockitoVersion = '2.8.47'
+
+    //Packages
+    supportPackage = 'com.android.support'
+    retrofitPackage = 'com.squareup.retrofit2'
+
+    daggerPackage = 'com.google.dagger'
+
+    butterknifePackage = 'com.jakewharton'
+
+    lifecyclePackage = 'android.arch.lifecycle'
+
+    reactivePackage = 'io.reactivex.rxjava2'
+
+    hdodenhofPackage = 'de.hdodenhof'
+
+
+    junitPackage = 'junit'
+    mockitoPackage = 'org.mockito'
+
+    supportDependencies = [
+            design      : buildDependency(supportPackage, 'design', supportVersion),
+            recyclerView: buildDependency(supportPackage, 'recyclerview-v7', supportVersion),
+            cardView    : buildDependency(supportPackage, 'cardview-v7', supportVersion),
+            appCompat   : buildDependency(supportPackage, 'appcompat-v7', supportVersion)
+    ]
+
+    retrofitDependencies = [
+            retrofit     : buildDependency(retrofitPackage, 'retrofit', retrofitVersion),
+            gson         : buildDependency(retrofitPackage, 'converter-gson', retrofitVersion),
+            rxAdapterJava: buildDependency(retrofitPackage, 'adapter-rxjava2', retrofitVersion)
+    ]
+
+    butterknifeDependencies = [
+            butterknife        : buildDependency(butterknifePackage, 'butterknife', butterknifeVersion),
+            butterknifeCompiler: buildDependency(butterknifePackage, 'butterknife-compiler', butterknifeVersion),
+    ]
+
+    rxDependencies = [
+            rxAndroid: buildDependency(reactivePackage, 'rxandroid', rxAndroidVersion),
+            rxJava   : buildDependency(reactivePackage, 'rxjava', rxJavaVersion)
+    ]
+
+    daggerDependencies = [
+            daggerCompiler        : buildDependency(daggerPackage, 'dagger-compiler', daggerAndroidVersion),
+            dagger                : buildDependency(daggerPackage, 'dagger', daggerAndroidVersion),
+            daggerAndroid         : buildDependency(daggerPackage, 'dagger-android', daggerAndroidVersion),
+            daggerAndroidProcessor: buildDependency(daggerPackage, 'dagger-android-processor', daggerAndroidVersion),
+            daggerAndroidSupport  : buildDependency(daggerPackage, 'dagger-android-support', daggerAndroidVersion)
+    ]
+
+    lifecycleDependencies = [
+            lifecycleRuntime  : buildDependency(lifecyclePackage, 'runtime', lifecycleAndroidVersion),
+            lifecycleExtension: buildDependency(lifecyclePackage, 'extensions', lifecycleAndroidVersion),
+            lifecycleCompiler : buildDependency(lifecyclePackage, 'compiler', lifecycleAndroidVersion)
+    ]
+
+
+    testingDependencies = [
+            junit  : buildDependency(junitPackage, 'junit', junitVersion),
+            mockito: buildDependency(mockitoPackage, 'mockito-core', mockitoVersion)
+
+    ]
+}
+
+static String buildDependency(String pack, String dependency, String version) {
+    return "${pack}:${dependency}:${version}"
+}
